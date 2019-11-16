@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-leaflet-fullscreen": [
+        "dist/ngx-leaflet-fullscreen"
+      ],
+      "ngx-leaflet-fullscreen/*": [
+        "dist/ngx-leaflet-fullscreen/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

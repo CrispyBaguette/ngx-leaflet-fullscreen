@@ -2,5 +2,159 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "ngx-leaflet-fullscreen": {
+      "projectType": "library",
+      "root": "projects/ngx-leaflet-fullscreen",
+      "sourceRoot": "projects/ngx-leaflet-fullscreen/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-leaflet-fullscreen/tsconfig.lib.json",
+            "project": "projects/ngx-leaflet-fullscreen/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-leaflet-fullscreen/src/test.ts",
+            "tsConfig": "projects/ngx-leaflet-fullscreen/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-leaflet-fullscreen/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-leaflet-fullscreen/tsconfig.lib.json",
+              "projects/ngx-leaflet-fullscreen/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "fullscreen-demo": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/fullscreen-demo",
+      "sourceRoot": "projects/fullscreen-demo/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/fullscreen-demo",
+            "index": "projects/fullscreen-demo/src/index.html",
+            "main": "projects/fullscreen-demo/src/main.ts",
+            "polyfills": "projects/fullscreen-demo/src/polyfills.ts",
+            "tsConfig": "projects/fullscreen-demo/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/fullscreen-demo/src/favicon.ico",
+              "projects/fullscreen-demo/src/assets"
+            ],
+            "styles": [
+              "projects/fullscreen-demo/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/fullscreen-demo/src/environments/environment.ts",
+                  "with": "projects/fullscreen-demo/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "fullscreen-demo:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "fullscreen-demo:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "fullscreen-demo:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/fullscreen-demo/src/test.ts",
+            "polyfills": "projects/fullscreen-demo/src/polyfills.ts",
+            "tsConfig": "projects/fullscreen-demo/tsconfig.spec.json",
+            "karmaConfig": "projects/fullscreen-demo/karma.conf.js",
+            "assets": [
+              "projects/fullscreen-demo/src/favicon.ico",
+              "projects/fullscreen-demo/src/assets"
+            ],
+            "styles": [
+              "projects/fullscreen-demo/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/fullscreen-demo/tsconfig.app.json",
+              "projects/fullscreen-demo/tsconfig.spec.json",
+              "projects/fullscreen-demo/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/fullscreen-demo/e2e/protractor.conf.js",
+            "devServerTarget": "fullscreen-demo:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "fullscreen-demo:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "defaultProject": "ngx-leaflet-fullscreen"
 }
