@@ -24,6 +24,7 @@
     "leaflet.fullscreen": "^1.6.0",
     "puppeteer": "^2.0.0",
     "rxjs": "~6.4.0",
+    "screenfull": "^5.0.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },

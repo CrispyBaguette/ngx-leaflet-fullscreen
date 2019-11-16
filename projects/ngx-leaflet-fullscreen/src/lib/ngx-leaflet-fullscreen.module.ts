@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
-import { NgxLeafletFullscreenComponent } from './ngx-leaflet-fullscreen.component';
-
+import { LeafletFullscreenDirective } from './ngx-leaflet-fullscreen.directive';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 
 @NgModule({
-  declarations: [NgxLeafletFullscreenComponent],
+  declarations: [LeafletFullscreenDirective],
   imports: [
+    LeafletModule.forRoot()
   ],
-  exports: [NgxLeafletFullscreenComponent]
+  exports: [LeafletFullscreenDirective]
 })
 export class NgxLeafletFullscreenModule { }
