@@ -7,7 +7,7 @@
       "projectType": "library",
       "root": "projects/ngx-leaflet-fullscreen",
       "sourceRoot": "projects/ngx-leaflet-fullscreen/src",
-      "prefix": "lib",
+      "prefix": "leaflet",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
@@ -59,7 +59,9 @@
               "projects/fullscreen-demo/src/assets"
             ],
             "styles": [
-              "projects/fullscreen-demo/src/styles.css"
+              "projects/fullscreen-demo/src/styles.css",
+              "node_modules/leaflet/dist/leaflet.css",
+              "node_modules/leaflet.fullscreen/Control.Fullscreen.css"
             ],
             "scripts": []
           },
