@@ -1,6 +1,11 @@
 {
   "name": "ngx-leaflet-fullscreen",
-  "version": "1.0.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CrispyBaguette/ngx-leaflet-fullscreen.git"
+  },
+  "version": "1.0.2",
   "peerDependencies": {
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14"
